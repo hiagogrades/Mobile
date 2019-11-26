@@ -6,7 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-
-  constructor() {}
-
+  jsoncard: Response;
+    constructor() {
+      this.consultaApi();
+  }
+  consultaApi() {
+    fetch('http://www.json-generator.com/api/json/get/cfjBorXJua?indent=2')
+    .then(response => response.json())
+    .then(data => {
+      this.jsoncard = data;
+      console.log(data);
+    });
+  }
 }
